@@ -43,8 +43,6 @@ def test_create_kit_with_numbers_in_name_get_success_response():
 def test_create_kit_without_name_parameter_get_error_response():
     kit_body = data.kit_body.copy()
     kit_body.pop("name")
-    response = sender_stand_request.post_new_client_kit(kit_body)
-    assert response.status_code == 400
-
+    check_negative_assert(kit_body)
 def test_create_kit_with_integer_type_name_get_error_response():
     check_negative_assert(123)
